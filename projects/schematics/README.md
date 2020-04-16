@@ -1,11 +1,12 @@
-#  NGSL Library (BETA)
+#  @ngsl/schematics (BETA)
 
 An useful library for scaffold an Angular 9 project with the Slabcode enterprise architecture using Angular Schematics
 
 ## Installation
-Run ```npm install @ngsl/schematics```
 
-## Use
+Run ```npm install @ngsl/schematics --save-dev```
+
+## Usage
 Once the ```ng new``` command has been executed you can run:
 
 ### Project: 
