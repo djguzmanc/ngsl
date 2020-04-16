@@ -1,0 +1,20 @@
+import { Injectable } from '@angular/core';<% if (cache) { %>
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ApiService } from '@interfaces/auxiliars';
+<% } else { %>
+import { HttpClient } from '@angular/common/http';
+<% } %>
+@Injectable({
+  providedIn: 'root'
+})
+export class <%= classify(name) %>ApiService<% if (cache) { %> implements ApiService<% } %> {
+<% if (cache) { %>
+  public readonly cacheOwnerSign: string = '<%= dasherize(name) %>';
+  public readonly commonHttpHeaders = new HttpHeaders({
+    'Cache-Owner': this.cacheOwnerSign,
+  });
+<% } %>
+  constructor(
+    private http: HttpClient
+  ) { }
+}

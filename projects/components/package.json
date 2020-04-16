@@ -1,6 +1,15 @@
 {
   "name": "@ngsl/components",
   "version": "0.0.1",
+  "description": "An useful library from the **ngsl** family offering useful Angular components, directives and more...",
+  "keywords": [
+    "components",
+    "angular components",
+    "angular utils",
+    "angular enterprise components"
+  ],
+  "author": "David Guzman, djguzmanc@slabcode.com",
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^9.1.1",
     "@angular/core": "^9.1.1",

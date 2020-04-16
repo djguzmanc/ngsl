@@ -1,0 +1,19 @@
+import { Injectable } from '@angular/core';
+import { <%= classify(name) %>ApiService } from '@services/api';<% if (cache) { %>
+import { CacheService } from '@services/cache/cache.service';<% } %>
+
+@Injectable({
+  providedIn: 'root'
+})
+export class <%= classify(name) %>Facade {
+
+  constructor(
+    private api: <%= classify(name) %>ApiService<% if (cache) { %>,
+    private cacheService: CacheService<% } %>
+  ) { }
+<% if (cache) { %>
+  clearCache(): void {
+    this.cacheService.clearOwnerCache(this.api.cacheOwnerSign);
+  }
+<% } %>
+}

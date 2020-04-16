@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "PageSchematics",
+  "title": "Page Schema",
+  "type": "object",
+  "description": "Creates a component that has no selector.",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the page",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "The path to create the schematic within.",
+      "visible": false
+     }
+  },
+  "required": [
+    "name"
+  ]
+}

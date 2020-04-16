@@ -1,0 +1,15 @@
+import { Component, OnInit } from '@angular/core';
+
+/**
+ * <%= classify(name) %> wrapper
+ */
+@Component({
+  templateUrl: './<%= dasherize(name) %>-wrapper.component.html',
+  styleUrls: ['./<%= dasherize(name) %>-wrapper.component.scss']
+})
+export class <%= classify(name) %>WrapperComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {}
+}

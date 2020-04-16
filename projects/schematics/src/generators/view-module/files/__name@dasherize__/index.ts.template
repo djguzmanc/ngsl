@@ -1,0 +1,18 @@
+<% if (wrapper) { %>import { <%= classify(name) %>WrapperComponent } from './wrapper/<%= dasherize(name) %>-wrapper.component';
+
+/**
+ * <%= classify(name) %> components
+ */
+export const <%= toUpperCase(underscore(name)) %>_COMPONENTS: any[] = [
+  <%= classify(name) %>WrapperComponent,
+];<% } else { %>/**
+ * <%= classify(name) %> components
+ */
+export const <%= toUpperCase(underscore(name)) %>_COMPONENTS: any[] = [
+];<% } %>
+
+/**
+ * Components
+ */<% if (wrapper) { %>
+
+export * from './wrapper/<%= dasherize(name) %>-wrapper.component';<% } %>

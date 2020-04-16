@@ -1,0 +1,15 @@
+import { Routes, RouterModule } from '@angular/router';<% if (wrapper) { %>
+import { <%= classify(name) %>WrapperComponent } from './wrapper/<%= dasherize(name) %>-wrapper.component';<% } %>
+
+/**
+ * <%= classify(name) %> routes
+ */
+<% if (wrapper) {%>const routes: Routes = [
+  {
+    path: '<%= dasherize(wrapper_path) %>',
+    component: <%= classify(name) %>WrapperComponent,
+    children: []
+  }
+];<% } else { %>const routes: Routes = [];<% } %>
+
+export const <%= toUpperCase(underscore(name)) %>_ROUTES = RouterModule.forChild(routes);

@@ -1,0 +1,13 @@
+import { <%= classify(name) %>WrapperComponent } from './<%= dasherize(name) %>-wrapper.component';
+
+fdescribe('<%= classify(name) %>WrapperComponent', () => {
+  let component: <%= classify(name) %>WrapperComponent;
+
+  beforeEach(() => {
+    component = new <%= classify(name) %>WrapperComponent();
+  });
+
+  it('should create an instance', () => {
+    expect(component).toBeTruthy();
+  });
+});

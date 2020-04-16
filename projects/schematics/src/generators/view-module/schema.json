@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "ShareableModuleSchematics",
+  "title": "Shareable module Schema",
+  "type": "object",
+  "description": "Creates a module that can contain useful components.",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the shareable module",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "wrapper" : {
+      "type": "boolean",
+      "description": "Specifies if the module has a component wrapper",
+      "default": true
+    },
+    "wrapper_path" : {
+      "type": "string",
+      "description": "Specifies the route name for the wrapper"
+    },
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "The path to create the schematic within.",
+      "visible": false
+     }
+  },
+  "required": [
+    "name"
+  ]
+}

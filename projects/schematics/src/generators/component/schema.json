@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "ComponentSchematics",
+  "title": "Component Schema",
+  "type": "object",
+  "description": "Creates a component and imports it inside the index file.",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the component",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "The path to create the schematic within.",
+      "visible": false
+     }
+  },
+  "required": [
+    "name"
+  ]
+}

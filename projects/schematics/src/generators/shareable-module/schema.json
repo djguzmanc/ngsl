@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "ViewModuleSchematics",
+  "title": "View module Schema",
+  "type": "object",
+  "description": "Creates a view module (lazy loaded).",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the view module",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "The path to create the schematic within.",
+      "visible": false
+     }
+  },
+  "required": [
+    "name"
+  ]
+}

@@ -1,0 +1,7 @@
+
+/**
+ * <%= classify(name) %> components
+ */
+export const <%= toUpperCase(underscore(name)) %>_COMPONENTS: any[] = [
+];
+

@@ -1,0 +1,5 @@
+/**
+ * <%= classify(name) %> description
+ */
+export class <%= classify(name) %> {
+}

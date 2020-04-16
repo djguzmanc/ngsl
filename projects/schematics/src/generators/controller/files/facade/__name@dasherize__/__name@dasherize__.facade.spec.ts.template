@@ -1,0 +1,11 @@
+import { TestBed } from '@angular/core/testing';
+import { <%= classify(name) %>Facade } from './<%= dasherize(name) %>.facade';
+
+describe('<%= classify(name) %>Facade', () => {
+  beforeEach(() => TestBed.configureTestingModule({}));
+
+  it('should be created', () => {
+    const service: <%= classify(name) %>Facade = TestBed.get(<%= classify(name) %>Facade);
+    expect(service).toBeTruthy();
+  });
+});

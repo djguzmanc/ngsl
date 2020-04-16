@@ -1,0 +1,56 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "src",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "noImplicitReturns": true,
+    "experimentalDecorators": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "allowUnreachableCode": false,
+    "strictPropertyInitialization": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "@services/*": [
+        "app/services/*"
+      ],
+      "@data/*": [
+        "app/data/*"
+      ],
+      "@interceptors/*": [
+        "app/interceptors/*"
+      ],
+      "@custom-modules/*": [
+        "app/custom-modules/*"
+      ],
+      "@utils/*": [
+        "app/utils/*"
+      ],
+      "@guards/*": [
+        "app/guards/*"
+      ],
+      "@modules/*": [
+        "app/modules/*"
+      ]
+    }
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "strictTemplates": true
+  }
+}

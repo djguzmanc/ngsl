@@ -1,0 +1,11 @@
+import { TestBed } from '@angular/core/testing';
+import { <%= classify(name) %>ApiService } from './<%= dasherize(name) %>-api.service';
+
+describe('<%= classify(name) %>ApiService', () => {
+  beforeEach(() => TestBed.configureTestingModule({}));
+
+  it('should be created', () => {
+    const service: <%= classify(name) %>ApiService = TestBed.get(<%= classify(name) %>ApiService);
+    expect(service).toBeTruthy();
+  });
+});

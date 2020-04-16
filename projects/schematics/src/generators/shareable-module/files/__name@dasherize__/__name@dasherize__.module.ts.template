@@ -1,0 +1,15 @@
+import { NgModule } from '@angular/core';
+import { <%= toUpperCase(underscore(name)) %>_COMPONENTS } from '.';
+import { SharedModule } from '@custom-modules/shared.module';
+
+/**
+ * <%= classify(name) %> Module
+ */
+@NgModule({
+  declarations: [...<%= toUpperCase(underscore(name)) %>_COMPONENTS],
+  imports: [
+    SharedModule
+  ],
+  exports: [...<%= toUpperCase(underscore(name)) %>_COMPONENTS]
+})
+export class <%= classify(name) %>Module { }

@@ -1,0 +1,5 @@
+/**
+ * I<%= classify(name) %><% if (group !== AUXILIARY_NAME) { %><%= classify(group) %><% } %> description
+ */
+export interface I<%= classify(name) %><% if (group !== AUXILIARY_NAME) { %><%= classify(group) %><% } %> {
+}

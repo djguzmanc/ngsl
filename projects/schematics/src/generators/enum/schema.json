@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "EnumSchematics",
+  "title": "Enum Schema",
+  "type": "object",
+  "description": "Creates an enum that can be grouped.",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the enum",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "group" : {
+      "type": "string",
+      "description": "Specifies the enum group",
+      "default": "auxiliary"
+    },
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "The path to create the schematic within.",
+      "visible": false
+     }
+  },
+  "required": [
+    "name"
+  ]
+}

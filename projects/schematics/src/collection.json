@@ -1,0 +1,92 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "project": {
+      "description": "Creates a project with the basic structure",
+      "factory": "./generators/project/index#project",
+      "aliases": [
+        "p"
+      ]
+    },
+    "controller": {
+      "description": "Create a controller involving a service API and a facade.",
+      "factory": "./generators/controller/index#controller",
+      "schema": "./generators/controller/schema.json",
+      "aliases": [
+        "ct"
+      ]
+    },
+    "view-module": {
+      "description": "Creates a view module (lazy loaded).",
+      "factory": "./generators/view-module/index#viewModule",
+      "schema": "./generators/view-module/schema.json",
+      "aliases": [
+        "vm"
+      ]
+    },
+    "shareable-module": {
+      "description": "Creates a module that can contain useful components.",
+      "factory": "./generators/shareable-module/index#shareableModule",
+      "schema": "./generators/shareable-module/schema.json",
+      "aliases": [
+        "sm"
+      ]
+    },
+    "class": {
+      "description": "Creates a class.",
+      "factory": "./generators/class/index#_class",
+      "schema": "./generators/class/schema.json",
+      "aliases": [
+        "cl"
+      ]
+    },
+    "interface": {
+      "description": "Creates an interface that can be grouped.",
+      "factory": "./generators/interface/index#_interface",
+      "schema": "./generators/interface/schema.json",
+      "aliases": [
+        "i"
+      ]
+    },
+    "enum": {
+      "description": "Creates an enum that can be grouped.",
+      "factory": "./generators/enum/index#_enum",
+      "schema": "./generators/enum/schema.json",
+      "aliases": [
+        "e"
+      ]
+    },
+    "page": {
+      "description": "Creates a component that has no selector.",
+      "factory": "./generators/page/index#page",
+      "schema": "./generators/page/schema.json",
+      "aliases": [
+        "pg"
+      ]
+    },
+    "component": {
+      "description": "Creates a component and imports it inside the index file.",
+      "factory": "./generators/component/index#component",
+      "schema": "./generators/component/schema.json",
+      "aliases": [
+        "c"
+      ]
+    },
+    "model": {
+      "description": "Creates a model.",
+      "factory": "./generators/model/index#model",
+      "schema": "./generators/model/schema.json",
+      "aliases": [
+        "m"
+      ]
+    },
+    "observable-service": {
+      "description": "Creates an observable service.",
+      "factory": "./generators/observable-service/index#observableService",
+      "schema": "./generators/observable-service/schema.json",
+      "aliases": [
+        "os"
+      ]
+    }
+  }
+}

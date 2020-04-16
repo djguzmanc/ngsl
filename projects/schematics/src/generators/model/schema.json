@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "ModelSchematics",
+  "title": "Model Schema",
+  "type": "object",
+  "description": "Creates a model.",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the model",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "The path to create the schematic within.",
+      "visible": false
+     }
+  },
+  "required": [
+    "name"
+  ]
+}

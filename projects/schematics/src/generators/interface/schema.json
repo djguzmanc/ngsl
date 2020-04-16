@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "InterfaceSchematics",
+  "title": "Interface Schema",
+  "type": "object",
+  "description": "Creates an interface that can be grouped.",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the interface",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "group" : {
+      "type": "string",
+      "description": "Specifies the interface group",
+      "default": "auxiliary"
+    },
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "The path to create the schematic within.",
+      "visible": false
+     }
+  },
+  "required": [
+    "name"
+  ]
+}
