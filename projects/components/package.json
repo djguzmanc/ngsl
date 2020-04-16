@@ -1,6 +1,6 @@
 {
   "name": "@ngsl/components",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An useful library from the **ngsl** family offering useful Angular components, directives and more...",
   "keywords": [
     "components",

@@ -94,7 +94,7 @@ On your template file:
 <div *ngslAsyncHandler="
 	data$ | async as successfulData;
 	useLoading loadingTemplate;
-	useError: errorTemplate">
+	useError errorTemplate">
 	All your expected data goes here
 	{{ successfulData | json }}
 </div>
@@ -126,7 +126,7 @@ data$: Observable<{
 ```html
 <div *ngslAsyncHandler="
 	data$ | async as successfulData;
-	errName: 'myCustomErrorName'">
+	errName 'myCustomErrorName'">
 	...
 </div>
 ```
@@ -153,7 +153,7 @@ data$: Observable<{
 
 <div *ngslAsyncHandler="
 	data$ | async;
-	useError: errorTemplate">
+	useError errorTemplate">
 	...
 </div>
 ```
