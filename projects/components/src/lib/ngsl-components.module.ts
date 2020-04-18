@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
-import { NgslAsyncHandlerDirective } from './directives/async-handler/async-handler.directive';
+import { NgslSelectModule } from './components/select/select.module';
+import { NgslAsyncHandlerModule } from './directives/async-handler/async-handler.module';
 
 @NgModule({
-  declarations: [
-    NgslAsyncHandlerDirective
-  ],
   imports: [
+    NgslSelectModule,
+    NgslAsyncHandlerModule
   ],
   exports: [
-    NgslAsyncHandlerDirective
+    NgslSelectModule,
+    NgslAsyncHandlerModule
   ]
 })
 export class NgslComponentsModule { }

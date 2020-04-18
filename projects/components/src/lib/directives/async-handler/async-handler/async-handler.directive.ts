@@ -7,6 +7,8 @@ import {
   ɵstringify as stringify
 } from '@angular/core';
 
+// TODO: NGSL Property Switch?
+
 export class NgslAsyncHandlerContext<T> {
   public $implicit: T;
   public ngslAsyncHandler: T;

@@ -1,0 +1,54 @@
+<ng-template
+  #defaultOptionTemplate
+  let-option
+  let-active="active">
+  <div
+    class="ngsl-default-option"
+    [class.ngsl-option-selected]="active">
+    {{ _getOptionLabelForTemplate(option) }}
+  </div>
+</ng-template>
+
+<div
+  class="ngsl-select-pseudohost"
+  [class.ngsl-select-disabled]="_disabled"
+  [class.ngsl-select-required]="_hasError"
+  [class.ngsl-select-pseudohost-on-focus]="_selectHasFocus"
+  (click)="_toggleOptionsActive($event)">
+  <div class="ngsl-selector-wrapper">
+    <input
+      #inputFocusTrap
+      readonly
+      type="text"
+      class="ngsl-selection-label"
+      [placeholder]="placeholder"
+      [(ngModel)]="_currentLabel"
+      (focus)="_selectHasFocus = true"
+      (blur)="_selectHasFocus = false; _triggerBlurTouched()">
+    <ng-container *ngIf="iconTemplate">
+      <ng-container *ngTemplateOutlet="iconTemplate; context: {}"></ng-container>
+    </ng-container>
+  </div>
+  <div
+    class="ngsl-options-container"
+    [class.ngsl-drop-from-bottom]="_dropFromBottom"
+    *ngIf="optionsActive"
+    [@dropAnim]>
+    <div
+      class="ngsl-overflow-wrapper"
+      #overflowWrapper>
+      <div
+        #optionsRef
+        *ngFor="let option of _options; let i = index"
+        (click)="_onOptionClick(i)"
+        class="ngsl-option-wrapper">
+        <ng-container *ngTemplateOutlet="(
+          optionTemplate ? optionTemplate : defaultOptionTemplate); 
+          context: { 
+            $implicit: option,
+            active: _isOptionSelected(option, i)
+          }"></ng-container>
+      </div>
+    </div>
+  </div>
+</div>
