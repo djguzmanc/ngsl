@@ -59,29 +59,29 @@ export  class  AppComponent  implements  OnInit {
 
   valueLabelOptions = [
     {
-    value: 0,
-    label: 'This options means 0'
+      value: 0,
+      label: 'This options means 0'
     },
     {
-    value: 1,
-    label: 'This options means 1'
+      value: 1,
+      label: 'This options means 1'
     },
     {
-    value: 2,
-    label: 'This options means 2'
+      value: 2,
+      label: 'This options means 2'
     },
   ];
 
   mixedOptions = [
     'String option 1',
     {
-    value: 0,
-    label: 'This options means 0'
+      value: 0,
+      label: 'This options means 0'
     },
     'String option 2',
     {
-    value: 1,
-    label: 'This options means 1'
+      value: 1,
+      label: 'This options means 1'
     },
   ];
 }
@@ -98,7 +98,7 @@ On your template file:
   [options]="valueLabelOptions"
   placeholder="Please pick an option with value alias"></ngsl-select>
   
-<ngsl-select  [options]="mixedOptions"></ngsl-select>
+<ngsl-select [options]="mixedOptions"></ngsl-select>
 ```
 
 ####  Custom templates
