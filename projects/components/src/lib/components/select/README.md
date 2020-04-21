@@ -142,7 +142,14 @@ You can customize your options, in your template add:
 
 By taking this approach you may be noticed that the hover or active behavior on an option has been disappeared, let's fix this.
 
-The template context offers an `active` property telling whether the option is active or not, so you can use it to bind it to a class that must be applied when the option is active or hovered or both.
+#####  Option template `context`
+|NAME              |TYPE            |
+|------------------|----------------|
+|$implicit         |`NgslOption`    |
+|active            |`boolean`       |
+|selected          |`boolean`       |
+
+The template context offers a `selected` property telling whether the option is selected or not, so you can use it to bind it to a class that must be applied when the option is selected or hovered or both. Also there is an `active` property in order to distinct whether the option is selected or active (user is navigating through the options with the keyboard).
 
 ```html
 <ngsl-select
@@ -150,10 +157,10 @@ The template context offers an `active` property telling whether the option is a
   <ng-template
     #option
     let-option
-    let-isActive="active">
+    let-isSelected="selected">
     <div
       class="my-awesome-option"
-      [class.active-option]="isActive">
+      [class.selected-option]="isSelected">
       {{ option.label || option }}</div>
   </ng-template>
 </ngsl-select>
@@ -162,11 +169,11 @@ The template context offers an `active` property telling whether the option is a
 .my-awesome-option {
   background: blue;
   &:hover {
-    @extend .active-option;
+    @extend .selected-option;
   }
 }
 
-.active-option {
+.selected-option {
   background: green;
 }
 ```

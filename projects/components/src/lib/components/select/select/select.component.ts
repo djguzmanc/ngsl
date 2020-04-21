@@ -215,12 +215,20 @@ export class NgslSelectComponent implements OnInit, ControlValueAccessor {
 
   ngOnInit() { }
 
+  // TODO: Disabled options & options filter
+
   /**
    * Tells if the option is currently selected
    */
-  _isOptionSelected(option: NgslOption, index: number): boolean {
-    return getOptionValue(option) === this.currentValue ||
-      this._currentOptionIndex === index;
+  _isOptionSelected(option: NgslOption): boolean {
+    return getOptionValue(option) === this.currentValue;
+  }
+
+  /**
+   * Tells if the option is active
+   */
+  _isOptionActive(index: number): boolean {
+    return this._currentOptionIndex === index;
   }
 
   /**
@@ -285,19 +293,13 @@ export class NgslSelectComponent implements OnInit, ControlValueAccessor {
    * Registers a touch
    */
   _triggerBlurTouched(): void {
-    if (!this._disabled && this.ngControl && this.ngControl.control) {
-      this._onTouchedFn();
+    if (!this._disabled) {
+      if (this._onTouchedFn) {
+        this._onTouchedFn();
+      }
       this.control.markAsTouched();
+      this.optionsActive = false;
     }
-  }
-
-  /**
-   * Hides the options whenever the user
-   * click outside the component
-   */
-  @HostListener('window:click')
-  _onOutsideClick(): void {
-    this.optionsActive = false;
   }
 
   /**
@@ -372,6 +374,16 @@ export class NgslSelectComponent implements OnInit, ControlValueAccessor {
       event.preventDefault();
     }
   }
+
+  /**
+   * Hides the options whenever the user
+   * click outside the component
+   */
+  // @HostListener('window:click')
+  // _onOutsideClick(): void {
+  //   console.log('Outside click, hide options!');
+  //   this.optionsActive = false;
+  // }
 
   /**
    * Selects an option

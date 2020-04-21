@@ -46,7 +46,8 @@
           optionTemplate ? optionTemplate : defaultOptionTemplate); 
           context: { 
             $implicit: option,
-            active: _isOptionSelected(option, i)
+            selected: _isOptionSelected(option),
+            active: _isOptionActive(i)
           }"></ng-container>
       </div>
     </div>
