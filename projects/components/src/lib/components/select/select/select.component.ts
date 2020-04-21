@@ -298,17 +298,16 @@ export class NgslSelectComponent implements OnInit, ControlValueAccessor {
         this._onTouchedFn();
       }
       this.control.markAsTouched();
-      this.optionsActive = false;
     }
   }
 
   /**
-   * Keyboard interaction
+   * Listens for keyboard interaction
    * @param event Keyboard event
    */
-  @HostListener('window:keyup', ['$event'])
-  _onKeyup(event: KeyboardEvent): void {
-    if (!this._disabled) {
+  @HostListener('window:keydown', ['$event'])
+  _onKeyDown(event: KeyboardEvent) {
+    if (this._selectHasFocus && !this._disabled) {
       if (
         this._selectHasFocus &&
         !this.optionsActive &&
@@ -357,21 +356,12 @@ export class NgslSelectComponent implements OnInit, ControlValueAccessor {
         this._onOptionClick(this._currentOptionIndex);
         this.optionsActive = false;
       }
-    }
-  }
 
-  /**
-   * Prevent the window scroll from
-   * keyboard interaction
-   * @param event Keyboard event
-   */
-  @HostListener('window:keydown', ['$event'])
-  _onKeyDown(event: KeyboardEvent) {
-    if (
-      this._selectHasFocus &&
-      (event.keyCode === 32 || event.keyCode === 38 || event.keyCode === 40)
-    ) {
-      event.preventDefault();
+      if (
+        event.keyCode === 32 || event.keyCode === 38 || event.keyCode === 40
+      ) {
+        event.preventDefault();
+      }
     }
   }
 
@@ -379,11 +369,10 @@ export class NgslSelectComponent implements OnInit, ControlValueAccessor {
    * Hides the options whenever the user
    * click outside the component
    */
-  // @HostListener('window:click')
-  // _onOutsideClick(): void {
-  //   console.log('Outside click, hide options!');
-  //   this.optionsActive = false;
-  // }
+  @HostListener('window:click', ['$event'])
+  _onOutsideClick(event: UIEvent): void {
+    this.optionsActive = false;
+  }
 
   /**
    * Selects an option
