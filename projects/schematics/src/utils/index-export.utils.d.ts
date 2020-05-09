@@ -1,0 +1,1 @@
+export declare const addIndexExport: (name: string, group: string, insideFolder: boolean, path: string, templateTypeName: "interface" | "component" | "enum" | "empty" | "service" | "facade", tree: import("@angular-devkit/schematics/src/tree/interface").Tree, nameSuffix?: string) => void;

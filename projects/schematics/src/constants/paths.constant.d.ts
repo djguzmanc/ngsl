@@ -1,0 +1,12 @@
+export declare const SERVICES_PATH: string;
+export declare const MODULES_PATH: string;
+export declare const CLASSES_PATH: string;
+export declare const INTERFACES_PATH: string;
+export declare const ENUMS_PATH: string;
+export declare const DOMAIN_PATH: string;
+export declare const DOMAIN_ENTITIES_PATH: string;
+export declare const DOMAIN_INTERFACES_PATH: string;
+export declare const DOMAIN_ENUMS_PATH: string;
+export declare const APPLICATION_PATH: string;
+export declare const INFRASTRUCTURE_PATH: string;
+export declare const OBSERVABLE_SERVICES_PATH: string;
