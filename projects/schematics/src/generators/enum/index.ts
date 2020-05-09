@@ -3,27 +3,30 @@ import { EnumOptions } from './schema';
 import { strings } from '@angular-devkit/core';
 import { ENUMS_PATH } from '../../constants/paths.constant';
 import { addIndexExport } from '../../utils/index-export.utils';
-import { AUXILIARY_NAME } from '../../constants/name.constant';
+import { AUXILIARY_NAME, EXCLUDE_NAME } from '../../constants/name.constant';
 import { placeName } from '../../utils/nullable-name.utils';
 
 export function _enum(_options: EnumOptions): Rule {
   return (tree: Tree, _context: SchematicContext) => {
+    _options.path = _options.path || ENUMS_PATH;
+    const pathFix: string = _options.group !== EXCLUDE_NAME ? `/${_options.group}` : '';
     const sourceParametrizedTemplates = apply(url('./files'), [
       renameTemplateFiles(),
       template({
         ..._options,
         ...strings,
         placeName,
-        AUXILIARY_NAME
+        AUXILIARY_NAME,
+        EXCLUDE_NAME
       }),
-      move(ENUMS_PATH),
+      move(_options.path + pathFix),
     ]);
 
     addIndexExport(
       _options.name,
       _options.group,
       false,
-      ENUMS_PATH + `/${_options.group}`,
+      _options.path + pathFix,
       'enum',
       tree
     );

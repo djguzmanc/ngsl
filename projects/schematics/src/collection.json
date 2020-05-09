@@ -1,5 +1,6 @@
 {
   "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "extends": [ "@schematics/angular" ],
   "schematics": {
     "project": {
       "description": "Creates a project with the basic structure",
@@ -32,28 +33,28 @@
         "sm"
       ]
     },
-    "class": {
+    "ngsl-class": {
       "description": "Creates a class.",
       "factory": "./generators/class/index#_class",
       "schema": "./generators/class/schema.json",
       "aliases": [
-        "cl"
+        "ngsl-cl"
       ]
     },
-    "interface": {
+    "ngsl-interface": {
       "description": "Creates an interface that can be grouped.",
       "factory": "./generators/interface/index#_interface",
       "schema": "./generators/interface/schema.json",
       "aliases": [
-        "i"
+        "ngsl-i"
       ]
     },
-    "enum": {
+    "ngsl-enum": {
       "description": "Creates an enum that can be grouped.",
       "factory": "./generators/enum/index#_enum",
       "schema": "./generators/enum/schema.json",
       "aliases": [
-        "e"
+        "ngsl-e"
       ]
     },
     "page": {
@@ -64,12 +65,12 @@
         "pg"
       ]
     },
-    "component": {
+    "ngsl-component": {
       "description": "Creates a component and imports it inside the index file.",
       "factory": "./generators/component/index#component",
       "schema": "./generators/component/schema.json",
       "aliases": [
-        "c"
+        "ngsl-c"
       ]
     },
     "model": {
@@ -86,6 +87,22 @@
       "schema": "./generators/observable-service/schema.json",
       "aliases": [
         "os"
+      ]
+    },
+    "facade": {
+      "description": "Creates a single facade.",
+      "factory": "./generators/facade/index#facade",
+      "schema": "./generators/facade/schema.json",
+      "aliases": [
+        "f"
+      ]
+    },
+    "domain-enum": {
+      "description": "Creates a domain enum.",
+      "factory": "./generators/domain-enum/index#domainEnum",
+      "schema": "./generators/domain-enum/schema.json",
+      "aliases": [
+        "denum"
       ]
     }
   }

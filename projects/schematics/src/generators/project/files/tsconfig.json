@@ -28,8 +28,8 @@
       "@services/*": [
         "app/services/*"
       ],
-      "@data/*": [
-        "app/data/*"
+      "@domain/*": [
+        "app/domain/*"
       ],
       "@interceptors/*": [
         "app/interceptors/*"

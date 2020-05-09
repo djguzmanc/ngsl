@@ -13,6 +13,16 @@
         "index": 0
       }
     },
+    "useInterface": {
+      "type": "boolean",
+      "default": false,
+      "description": "Adds an interface for the given model"
+    },
+    "singleInterface": {
+      "type": "boolean",
+      "default": false,
+      "description": "Creates only an interface"
+    },
     "path": {
       "type": "string",
       "format": "path",

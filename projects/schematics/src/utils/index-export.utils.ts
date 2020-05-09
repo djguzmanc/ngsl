@@ -1,6 +1,6 @@
-import { Tree } from "@angular-devkit/schematics";
-import { strings } from "@angular-devkit/core";
-import { AUXILIARY_NAME } from "../constants/name.constant";
+import { Tree } from '@angular-devkit/schematics';
+import { strings } from '@angular-devkit/core';
+import { AUXILIARY_NAME, EXCLUDE_NAME } from '../constants/name.constant';
 
 export const addIndexExport = (
   name: string,
@@ -18,7 +18,7 @@ export const addIndexExport = (
   };
 
   const dasherizedName = strings.dasherize(name);
-  const contentToAppend = `export * from '.${ insideFolder ? '/' + dasherizedName : '' }/${dasherizedName + nameSuffix}${ group !== AUXILIARY_NAME ? '-' + group : '' }${ templateTypeName !== 'empty' ? '.' + templateTypeName : '' }';\n`;
+  const contentToAppend = `export * from '.${ insideFolder ? '/' + dasherizedName : '' }/${dasherizedName + nameSuffix}${ (group !== AUXILIARY_NAME && group !== EXCLUDE_NAME) ? '-' + group : '' }${ templateTypeName !== 'empty' ? '.' + templateTypeName : '' }';\n`;
   const newContent = indexFileContent + contentToAppend;
 
   if (!indexFile) {

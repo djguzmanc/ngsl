@@ -1,7 +1,7 @@
-import { getWorkspace } from "@schematics/angular/utility/config";
-import { getProject, buildDefaultPath } from "@schematics/angular/utility/project";
-import { parseName, Location } from "@schematics/angular/utility/parse-name";
-import { Tree } from "@angular-devkit/schematics";
+import { getWorkspace } from '@schematics/angular/utility/config';
+import { getProject, buildDefaultPath } from '@schematics/angular/utility/project';
+import { parseName, Location } from '@schematics/angular/utility/parse-name';
+import { Tree } from '@angular-devkit/schematics';
 
 export const parseCurrentPath = (tree: Tree, _options: any): Location => {
   const workspace = getWorkspace(tree);

@@ -1,5 +1,0 @@
-/**
- * <%= classify(name) %><% if (group !== AUXILIARY_NAME) { %><%= classify(group) %><% } %> description
- */
-export enum <%= classify(name) %><% if (group !== AUXILIARY_NAME) { %><%= classify(group) %><% } %> {
-}

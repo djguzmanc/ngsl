@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { <%= classify(name) %>ApiService } from '@services/api';<% if (cache) { %>
+import { I<%= classify(name) %>Controller } from '@utils/interfaces/controller';
+import { <%= classify(name) %>ApiService } from '@domain/infrastructure/api';<% if (cache) { %>
 import { CacheService } from '@services/cache/cache.service';<% } %>
 
 @Injectable({
   providedIn: 'root'
 })
-export class <%= classify(name) %>Facade {
+export class <%= classify(name) %>Facade implements I<%= classify(name) %>Controller {
 
   constructor(
     private api: <%= classify(name) %>ApiService<% if (cache) { %>,
