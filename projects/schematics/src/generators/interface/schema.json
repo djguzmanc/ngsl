@@ -17,13 +17,7 @@
       "type": "string",
       "description": "Specifies the interface group",
       "default": "auxiliary"
-    },
-    "path": {
-      "type": "string",
-      "format": "path",
-      "description": "The path to create the schematic within.",
-      "visible": false
-     }
+    }
   },
   "required": [
     "name"

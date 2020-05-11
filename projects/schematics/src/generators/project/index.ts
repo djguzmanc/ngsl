@@ -50,7 +50,8 @@ export function project(_options: any): Rule {
       angularJsonContent.slice(0, indexOfScripts) +
       `"stylePreprocessorOptions": {
               "includePaths": [
-                "src/scss"
+                "src/scss/settings",
+                "src/scss/tools"
               ]
             },
             ` +

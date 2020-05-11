@@ -21,7 +21,7 @@ export const addComponentIndex = (
     const content = indexFile.toString();
     const indexOfClosingArray = content.indexOf('];');
     if (indexOfClosingArray < 0) {
-      throw new Error(`Couldn't find and index file for the desired component.`);
+      throw new Error(`Couldn't find a module index file for the desired component.`);
     }
 
     const className = strings.classify(name);
@@ -38,6 +38,6 @@ export const addComponentIndex = (
       `export * from '.${reversePath}/${dashName}/${dashName}.component';\n`;
     tree.overwrite(`${splittedPath.join('/')}/index.ts`, newContent);
   } else {
-    throw new Error(`Couldn't find and index file for the desired component`);
+    throw new Error(`Couldn't find a module index file for the desired component`);
   }
 };

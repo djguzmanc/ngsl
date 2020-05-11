@@ -1,6 +1,6 @@
 {
   "name": "@ngsl/schematics",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "An useful library for scaffold an Angular 9 project with the Slabcode enterprise architecture using Angular Schematics",
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -20,6 +20,7 @@
   "dependencies": {
     "@angular-devkit/core": "^9.1.1",
     "@angular-devkit/schematics": "^9.1.1",
+    "@schematics/angular": "^9.1.5",
     "typescript": "~3.8.2"
   },
   "devDependencies": {
