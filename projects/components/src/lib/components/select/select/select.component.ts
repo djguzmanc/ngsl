@@ -19,6 +19,19 @@ import { NgControl, FormControl, AbstractControl, ControlValueAccessor } from '@
 import { NgslOption } from '../../../interfaces/ngsl-option.interface';
 import { getOptionLabel, getOptionValue } from '../../../utils/value-parser';
 import { makeChildVisible } from '../../../utils/scrolling';
+import { trigger, transition, style, animate } from '@angular/animations';
+
+const SCALE_FADE_IN_OUT = trigger('dropAnim',
+  [
+    transition(':enter', [
+      style({ transform: 'scaleY(0)', opacity: 0 }),
+      animate(100, style({ transform: 'scaleY(1)', opacity: 1 }))
+    ]),
+    transition(':leave', [
+      animate(100, style({ transform: 'scaleY(0)', opacity: 0 }))
+    ])
+  ]
+);
 
 @Component({
   selector: 'ngsl-select',
@@ -28,7 +41,10 @@ import { makeChildVisible } from '../../../utils/scrolling';
     :host {
       display: block;
     }
-  `]
+  `],
+  animations: [
+    SCALE_FADE_IN_OUT
+  ]
 })
 export class NgslSelectComponent implements OnInit, ControlValueAccessor {
 
