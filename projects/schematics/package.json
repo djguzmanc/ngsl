@@ -1,7 +1,7 @@
 {
   "name": "@ngsl/schematics",
-  "version": "0.0.5",
-  "description": "An useful library for scaffold an Angular 9 project with the Slabcode enterprise architecture using Angular Schematics",
+  "version": "0.0.6",
+  "description": "An useful library for scaffold an Angular 9 project with the Slabcode enterprise architecture",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "npm run build && jasmine src/**/*_spec.js"
@@ -14,8 +14,16 @@
     "angular architecture",
     "enterprise architecture"
   ],
-  "author": "David Guzman, djguzmanc@slabcode.com",
+  "author": "David Guzman <djguzmanc@slabcode.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djguzmanc/ngsl"
+  },
+  "bugs": {
+    "url": "https://github.com/djguzmanc/ngsl"
+  },
+  "homepage": "https://github.com/djguzmanc/ngsl/tree/master/projects/schematics#readme",
   "schematics": "./src/collection.json",
   "dependencies": {
     "@angular-devkit/core": "^9.1.1",

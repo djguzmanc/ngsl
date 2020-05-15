@@ -6,7 +6,7 @@ import { <%= classify(name) %>WrapperComponent } from './wrapper/<%= dasherize(n
  */
 <% if (wrapper) {%>const routes: Routes = [
   {
-    path: '<%= dasherize(wrapper_path) %>',
+    path: '',
     component: <%= classify(name) %>WrapperComponent,
     children: []
   }
