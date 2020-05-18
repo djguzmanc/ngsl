@@ -1,15 +1,28 @@
 {
   "name": "@ngsl/components",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "An useful library from the **ngsl** family offering useful Angular components, directives and more...",
   "keywords": [
     "components",
     "angular components",
     "angular utils",
-    "angular enterprise components"
+    "angular enterprise components",
+    "angular select",
+    "angular custom select",
+    "angular scroll directive",
+    "angular visible directive",
+    "angular scroll visible"
   ],
-  "author": "David Guzman, djguzmanc@slabcode.com",
+  "author": "David Guzman <djguzmanc@slabcode.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djguzmanc/ngsl"
+  },
+  "bugs": {
+    "url": "https://github.com/djguzmanc/ngsl"
+  },
+  "homepage": "https://github.com/djguzmanc/ngsl/tree/master/projects/schematics#readme",
   "peerDependencies": {
     "@angular/common": "^9.1.1",
     "@angular/core": "^9.1.1",

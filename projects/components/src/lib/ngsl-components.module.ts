@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { NgslSelectModule } from './components/select/select.module';
 import { NgslAsyncHandlerModule } from './directives/async-handler/async-handler.module';
+import { NgslVisibleModule } from './directives/visible/visible.module';
 
 @NgModule({
   imports: [
     NgslSelectModule,
-    NgslAsyncHandlerModule
+    NgslAsyncHandlerModule,
+    NgslVisibleModule
   ],
   exports: [
     NgslSelectModule,
-    NgslAsyncHandlerModule
-  ]
+    NgslAsyncHandlerModule,
+    NgslVisibleModule
+  ],
+  declarations: []
 })
 export class NgslComponentsModule { }

@@ -15,3 +15,7 @@ export * from './lib/interfaces/ngsl-option.interface';
  */
 export * from './lib/directives/async-handler/async-handler.module';
 export * from './lib/directives/async-handler/async-handler/async-handler.directive';
+
+export * from './lib/directives/visible/visible.module';
+export * from './lib/directives/visible/visible/visible.directive';
+export * from './lib/interfaces/visible-event.interface';

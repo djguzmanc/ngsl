@@ -36,6 +36,8 @@ export class AppModule { }
 ### Directives
 #### AsyncHandler
 Usage reference [here](https://github.com/djguzmanc/ngsl/tree/master/projects/components/src/lib/directives/async-handler).
+#### Visible
+Usage reference [here](https://github.com/djguzmanc/ngsl/tree/master/projects/components/src/lib/directives/visible).
 
 ### Components
 #### Select
