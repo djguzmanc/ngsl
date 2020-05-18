@@ -29,7 +29,7 @@ export class AppModule { }
 ###  `Visible Directive` properties
 
 |NAME|TYPE|DESCRIPTION|
-|-|-|-|-|
+|-|-|-|
 |throttleTime|`number`|The throttle time for processing the visible checking and notifying the current state through `ngslVisible` emitter. By default is `100ms`|
 |vPercentage|`number`|The minimal visible height percentage which tells if the element is in fact visible. By default is 100%|
 |ignoreVerticalAxis|`boolean`|Tells the directive to skip the vertical verification. By default is `false`|
