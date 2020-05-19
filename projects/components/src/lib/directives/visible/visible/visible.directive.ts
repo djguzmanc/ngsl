@@ -1,10 +1,11 @@
 import { Directive, Output, EventEmitter, OnInit, OnDestroy, Input, ElementRef } from '@angular/core';
-import { fromEvent, Subscription } from 'rxjs';
-import { throttleTime } from 'rxjs/operators';
+import { fromEvent, Subscription, Observable, noop } from 'rxjs';
+import { throttleTime, distinctUntilChanged, map, takeUntil, takeWhile, tap } from 'rxjs/operators';
 import { NgslVisibleEvent } from '../../../interfaces/visible-event.interface';
 
 @Directive({
-  selector: '[ngslVisible]'
+  selector: '[ngslVisible]',
+  exportAs: 'ngslVisible'
 })
 export class NgslVisibleDirective implements OnInit, OnDestroy {
 
@@ -21,6 +22,12 @@ export class NgslVisibleDirective implements OnInit, OnDestroy {
   checkHorizontalAxis: boolean = false;
 
   @Input()
+  tracing: boolean = false;
+
+  @Input()
+  stopWhen: boolean | null = null;
+
+  @Input()
   hPercentage: number = 1;
 
   @Input()
@@ -29,25 +36,44 @@ export class NgslVisibleDirective implements OnInit, OnDestroy {
   @Output()
   ngslVisible = new EventEmitter<NgslVisibleEvent>();
 
-  private scrollWatcherSub: Subscription;
+  private eventSource$: Observable<NgslVisibleEvent>;
+
+  private subscriptions: Subscription[] = [];
 
   constructor(private elementRef: ElementRef<HTMLElement>) { }
 
   ngOnInit(): void {
-    this.scrollWatcherSub = fromEvent(this.parent || window, 'scroll')
-      .pipe(throttleTime(this.throttleTime))
-      .subscribe(scrollEvent => {
-        const visibleCheckData = this.isElementVisible;
-        this.ngslVisible.emit({
-          scrollEvent,
-          visible: visibleCheckData.visible,
-          hVisiblePercentage: visibleCheckData.hPercentage,
-          vVisiblePercentage: visibleCheckData.vPercentage
-        });
-      });
+    this.eventSource$ = fromEvent(this.parent || window, 'scroll')
+      .pipe(
+        throttleTime(this.throttleTime),
+        map(scrollEvent => {
+          const visibleCheckData = this.isElementVisible;
+          return {
+            scrollEvent,
+            visible: visibleCheckData.visible,
+            hVisiblePercentage: visibleCheckData.hPercentage,
+            vVisiblePercentage: visibleCheckData.vPercentage
+          };
+        }),
+        this.tracing ?
+          tap() :
+          distinctUntilChanged((last, next) => last.visible === next.visible),
+        takeWhile(data => data.visible !== this.stopWhen, true)
+      );
+
+    this.resetListener();
   }
 
-  axisVisibleVerification({
+  private set scrollWatcherSub(sub: Subscription) {
+    this.subscriptions.push(sub);
+  }
+
+  resetListener(): void {
+    this.scrollWatcherSub = this.eventSource$
+      .subscribe(data => this.ngslVisible.emit(data));
+  }
+
+  private axisVisibleVerification({
     upperBound,
     lowerBound,
     parentUpperBound,
@@ -83,7 +109,7 @@ export class NgslVisibleDirective implements OnInit, OnDestroy {
     };
   }
 
-  get isElementVisible(): {
+  private get isElementVisible(): {
     visible: boolean;
     vPercentage: number;
     hPercentage?: number;
@@ -144,7 +170,7 @@ export class NgslVisibleDirective implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.scrollWatcherSub.unsubscribe();
+    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 
 }
