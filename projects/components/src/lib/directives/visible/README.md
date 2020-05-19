@@ -24,7 +24,7 @@ export class AppModule { }
 
 ##  Docs
 
-`Visible` is an `attribute directive` that tell's whether an element is visible on viewport or not while the user is **scrolling**.
+`Visible` is an `attribute directive` that tells whether an element is visible on viewport or not while the user is **scrolling**.
 
 ###  `Visible Directive` properties
 
