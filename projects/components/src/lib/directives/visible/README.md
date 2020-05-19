@@ -30,12 +30,14 @@ export class AppModule { }
 
 |NAME|TYPE|DESCRIPTION|
 |-|-|-|
+|parent|`HTMLElement`|If your element is within another **scrollable** element you should provide it here in order to check the element's visibility inside it. By default is the `window` object|
 |throttleTime|`number`|The throttle time for processing the visible checking and notifying the current state through `ngslVisible` emitter. By default is `100ms`|
+|tracing|`boolean`|By default, the directive emits a new state when the visiblity key change its state. By setting this property to `true` the directive will emit the state at each throttle cicle no matter if the state it's still the same|
 |vPercentage|`number`|The minimal visible height percentage which tells if the element is in fact visible. By default is 100%|
 |ignoreVerticalAxis|`boolean`|Tells the directive to skip the vertical verification. By default is `false`|
 |checkHorizontalAxis|`boolean`|Tells the directive to add the horizontal verification. By default is `false`|
 |hPercentage|`number`|The minimal visible width percentage which tells if the element is in fact visible. By default is 100%|
-|parent|`HTMLElement`|If your element is within another **scrollable** element you should provide it here in order to check the element's visibility inside it. By default is the `window` object|
+|stopWhen|`boolean`|Tells the directive to stop emitting whenever the visibility key is set to the required value, this is useful when you want to trigger an animation only once|
 
 ####  Basic usage example
 ```typescript
