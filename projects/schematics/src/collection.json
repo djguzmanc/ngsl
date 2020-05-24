@@ -17,18 +17,18 @@
         "ct"
       ]
     },
-    "view-module": {
-      "description": "Creates a view module (lazy loaded).",
-      "factory": "./generators/view-module/index#viewModule",
-      "schema": "./generators/view-module/schema.json",
+    "feature-module": {
+      "description": "Creates a feature module (lazy loaded).",
+      "factory": "./generators/feature-module/index#featureModule",
+      "schema": "./generators/feature-module/schema.json",
       "aliases": [
-        "vm"
+        "fm"
       ]
     },
-    "shareable-module": {
+    "shared-module": {
       "description": "Creates a module that can contain useful components.",
-      "factory": "./generators/shareable-module/index#shareableModule",
-      "schema": "./generators/shareable-module/schema.json",
+      "factory": "./generators/shared-module/index#sharedModule",
+      "schema": "./generators/shared-module/schema.json",
       "aliases": [
         "sm"
       ]

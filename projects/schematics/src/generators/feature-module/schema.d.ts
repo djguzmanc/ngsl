@@ -1,4 +1,4 @@
-export interface ViewModuleOptions {
+export interface FeatureModuleOptions {
   name: string;
   wrapper?: boolean;
   wrapper_path?: string;

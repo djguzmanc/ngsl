@@ -18,18 +18,18 @@ Once the ```ng new``` command has been executed you can run:
 - Creates the basic project structures, such as files, folders, etc
 - Be careful running this command, it will replace all the files and some work might be erased
 
-### View Module: 
-- Command ```ng g @ngsl/schematics:view-module <name>``` **alias: _vm_**
-- Creates a view module with custom routes and a _pages_ folder
+### Feature Module: 
+- Command ```ng g @ngsl/schematics:feature-module <name>``` **alias: _fm_**
+- Creates a feature module with custom routes and a _pages_ folder
 
 #### Optional params
 |NAME              |TYPE            |DEFAULT|DESCRIPTION|
 |------------------|----------------|-------|-----------|
 |wrapper           |`boolean`       |`true` |By default the schematic will create a wrapper, i.e. a component that will wrap the children components declared within|
 
-### Shareable Module: 
-- Command ```ng g @ngsl/schematics:shareable-module <name>``` **alias: _sm_**
-- Creates a shareable module, i. e.modules like Ui, meaning that it's components will be declared and exported
+### Shared Module: 
+- Command ```ng g @ngsl/schematics:shared-module <name>``` **alias: _sm_**
+- Creates a shared module, i. e.modules like Ui, meaning that it's components will be declared and exported
 
 ### Interfaces/Enums
 - Command ```ng g @ngsl/schematics:(ngsl-interface|ngsl-enum) <name>``` **alias: _ngsl-i_/_ngsl-e_**

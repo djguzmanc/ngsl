@@ -14,7 +14,7 @@ import { strings } from '@angular-devkit/core';
 import { toUpperCase } from '../../utils/strings.utils';
 import { parseCurrentPath } from '../../utils/current-path.utils';
 
-export function shareableModule(_options: SharableModuleOptions): Rule {
+export function sharedModule(_options: SharableModuleOptions): Rule {
   return (tree: Tree, _context: SchematicContext) => {
 
     const parsedPath = parseCurrentPath(tree, _options);

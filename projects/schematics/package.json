@@ -1,6 +1,6 @@
 {
   "name": "@ngsl/schematics",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "An useful library for scaffold an Angular 9 project with the Slabcode enterprise architecture",
   "scripts": {
     "build": "tsc -p tsconfig.json",

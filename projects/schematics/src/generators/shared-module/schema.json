@@ -1,13 +1,13 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "id": "ViewModuleSchematics",
-  "title": "View module Schema",
+  "id": "SharedModuleSchematics",
+  "title": "Feature module Schema",
   "type": "object",
-  "description": "Creates a view module (lazy loaded).",
+  "description": "Creates a module that can contain useful components.",
   "properties": {
     "name": {
       "type": "string",
-      "description": "The name of the view module",
+      "description": "The name of the shared module",
       "$default": {
         "$source": "argv",
         "index": 0

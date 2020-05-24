@@ -1,13 +1,13 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "id": "ShareableModuleSchematics",
-  "title": "Shareable module Schema",
+  "id": "FeatureModuleSchematics",
+  "title": "Feature module Schema",
   "type": "object",
-  "description": "Creates a module that can contain useful components.",
+  "description": "Creates a feature module (lazy loaded).",
   "properties": {
     "name": {
       "type": "string",
-      "description": "The name of the shareable module",
+      "description": "The name of the feature module",
       "$default": {
         "$source": "argv",
         "index": 0
@@ -20,7 +20,8 @@
     },
     "wrapper_path" : {
       "type": "string",
-      "description": "Specifies the route name for the wrapper"
+      "description": "Specifies the route name for the wrapper",
+      "default": ""
     },
     "path": {
       "type": "string",
