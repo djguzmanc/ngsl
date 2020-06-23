@@ -12,4 +12,7 @@ import { <%= classify(name) %>WrapperComponent } from './wrapper/<%= dasherize(n
   }
 ];<% } else { %>const routes: Routes = [];<% } %>
 
+/**
+ * <%= classify(name) %> routes export
+ */
 export const <%= toUpperCase(underscore(name)) %>_ROUTES = RouterModule.forChild(routes);

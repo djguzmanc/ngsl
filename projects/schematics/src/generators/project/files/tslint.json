@@ -1,7 +1,6 @@
 {
   "extends": "tslint:recommended",
   "rules": {
-    "array-type": false,
     "arrow-parens": false,
     "component-class-suffix": true,
     "contextual-lifecycle": true,
@@ -15,17 +14,16 @@
     "component-selector": [
       true,
       "element",
-      "app",
+      "ty",
       "kebab-case"
     ],
     "import-blacklist": [
       true,
       "rxjs/Rx"
     ],
-    "interface-name": false,
-    "max-classes-per-file": false,
+    "interface-name": true,
     "max-line-length": [
-      false,
+      true,
       140
     ],
     "member-access": false,
@@ -40,7 +38,13 @@
         ]
       }
     ],
-    "no-consecutive-blank-lines": false,
+    "no-irregular-whitespace": true,
+    "no-trailing-whitespace": true,
+    "no-consecutive-blank-lines": true,
+    "semicolon": [
+      true,
+      "always"
+    ],
     "no-console": [
       true,
       "debug",
@@ -62,20 +66,88 @@
     "no-redundant-jsdoc": true,
     "no-switch-case-fall-through": true,
     "no-use-before-declare": true,
-    "no-var-requires": false,
+    "no-var-requires": true,
     "prefer-for-of": false,
+    "no-void-expression": false,
+    "prefer-object-spread": true,
+    "no-string-throw": true,
+    "no-unused-expression": [
+      true,
+      "allow-fast-null-checks"
+    ],
+    "no-unused-variable": true,
+    "triple-equals": true,
+    "unnecessary-constructor": true,
+    "use-default-type-parameter": true,
+    "cyclomatic-complexity": true,
+    "deprecation": true,
+    "arrow-return-shorthand": true,
+    "binary-expression-operand-order": true,
+    "class-name": true,
+    "ordered-imports": false,
+    "prefer-switch": true,
+    "prefer-template": true,
+    "type-literal-delimiter": true,
+    "eofline": true,
+    "import-spacing": true,
+    "jsdoc-format": [
+      true,
+      "check-multiline-start"
+    ],
+    "file-name-casing": [
+      true,
+      "kebab-case"
+    ],
+    "completed-docs": [
+      true,
+      "enums",
+      "functions",
+      "methods",
+      "types",
+      "variables",
+      "interfaces",
+      "classes"
+    ],
+    "comment-format": [
+      true,
+      "check-space",
+      "allow-trailing-lowercase",
+      {
+        "ignore-words": [
+          "TODO"
+        ]
+      }
+    ],
+    "max-classes-per-file": [
+      true,
+      1
+    ],
+    "prefer-const": true,
+    "prefer-readonly": true,
+    "array-type": [
+      true,
+      "array-simple"
+    ],
     "object-literal-key-quotes": [
       true,
       "as-needed"
     ],
     "object-literal-sort-keys": false,
-    "ordered-imports": false,
     "quotemark": [
       true,
       "single"
     ],
-    "variable-name": false,
-    "trailing-comma": false,
+    "variable-name": {
+      "options": [
+        "ban-keywords",
+        "check-format",
+        "allow-leading-underscore",
+        "allow-pascal-case",
+        "require-const-for-all-caps"
+      ]
+    },
+    "no-shadowed-variable": true,
+    "trailing-comma": true,
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,
     "no-input-rename": true,

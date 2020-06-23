@@ -9,7 +9,7 @@ import { CacheService } from '@services/cache/cache.service';<% } %>
 export class <%= classify(name) %>Facade implements I<%= classify(name) %>Controller {
 
   constructor(
-    private api: <%= classify(name) %>ApiService<% if (cache) { %>,
+    private readonly api: <%= classify(name) %>ApiService<% if (cache) { %>,
     private cacheService: CacheService<% } %>
   ) { }
 <% if (cache) { %>

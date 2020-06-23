@@ -10,6 +10,7 @@ import {
   forEach
 } from '@angular-devkit/schematics';
 import { strings } from '@angular-devkit/core';
+import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
 
 export function project(_options: any): Rule {
   return (tree: Tree, _context: SchematicContext) => {
@@ -29,10 +30,34 @@ export function project(_options: any): Rule {
       })
     ]);
 
-    const angularJson: Buffer | null = tree.read('angular.json');
-    let angularJsonContent: string = '';
+    const angularJsonFilePath: string = 'angular.json';
+    const angularJson: Buffer | null = tree.read(angularJsonFilePath);
+    let angularJsonContent: any = {};
     if (angularJson) {
-      angularJsonContent = angularJson.toString();
+      angularJsonContent = JSON.parse(angularJson.toString());
+    }
+
+    const defaultProjectName: string = angularJsonContent.defaultProject;
+
+    const defaultStylesPath = 'src/styles.scss';
+    const customStylesPath = 'src/scss/styles.scss';
+
+    let stylesPathIndex: number = -1;
+    let stylesArray = (angularJsonContent.projects[defaultProjectName]
+      .architect.build.options.styles as string[]);
+    stylesPathIndex = stylesArray.indexOf(defaultStylesPath);
+
+    if (stylesPathIndex > -1) {
+      stylesArray[stylesPathIndex] = customStylesPath;
+    }
+
+    stylesPathIndex = -1;
+    stylesArray = (angularJsonContent.projects[defaultProjectName]
+      .architect.test.options.styles as string[]);
+    stylesPathIndex = stylesArray.indexOf(defaultStylesPath);
+
+    if (stylesPathIndex > -1) {
+      stylesArray[stylesPathIndex] = customStylesPath;
     }
 
     // Delete old styles file
@@ -41,23 +66,32 @@ export function project(_options: any): Rule {
       tree.delete(oldStylePath);
     }
 
-    // Fix styles url
-    angularJsonContent = angularJsonContent.replace('src/styles.scss', 'src/scss/styles.scss');
-
     // Add style preprocessor options
-    const indexOfScripts = angularJsonContent.indexOf('"scripts": []');
-    angularJsonContent =
-      angularJsonContent.slice(0, indexOfScripts) +
-      `"stylePreprocessorOptions": {
-              "includePaths": [
-                "src/scss/settings",
-                "src/scss/tools"
-              ]
-            },
-            ` +
-      angularJsonContent.slice(indexOfScripts, angularJsonContent.length);
+    angularJsonContent.projects[defaultProjectName]
+      .architect.build.options.stylePreprocessorOptions = {
+      includePaths: [
+        'src/scss/tools',
+        'src/scss/settings'
+      ]
+    }
 
-    tree.overwrite('angular.json', angularJsonContent);
+    tree.overwrite(angularJsonFilePath, JSON.stringify(angularJsonContent, null, 2));
+
+    const packageJsonFilePath: string = 'package.json';
+    const packageJson: Buffer | null = tree.read(packageJsonFilePath);
+    let packageJsonContent: any = {};
+    if (packageJson) {
+      packageJsonContent = JSON.parse(packageJson.toString());
+    }
+
+    packageJsonContent.devDependencies['pre-commit'] = '^1.2.2';
+    packageJsonContent['pre-commit'] = [
+      'lint'
+    ];
+
+    tree.overwrite(packageJsonFilePath, JSON.stringify(packageJsonContent, null, 2));
+
+    _context.addTask(new NodePackageInstallTask());
 
     return mergeWith(sourceParametrizedTemplates)(tree, _context);
   };

@@ -16,6 +16,6 @@ export class <%= classify(name) %>ApiService implements I<%= classify(name) %>Co
   });
 <% } %>
   constructor(
-    private http: HttpClient
+    private readonly http: HttpClient
   ) { }
 }
