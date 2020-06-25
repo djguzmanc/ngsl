@@ -5,7 +5,7 @@ describe('<%= classify(name) %>Facade', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: <%= classify(name) %>Facade = TestBed.get(<%= classify(name) %>Facade);
+    const service: <%= classify(name) %>Facade = TestBed.inject(<%= classify(name) %>Facade);
     expect(service).toBeTruthy();
   });
 });
