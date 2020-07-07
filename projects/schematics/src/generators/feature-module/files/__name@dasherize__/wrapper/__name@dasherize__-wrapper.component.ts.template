@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 /**
- * <%= classify(name) %> wrapper
+ * <%= classify(name) %> module wrapper
  */
 @Component({
   templateUrl: './<%= dasherize(name) %>-wrapper.component.html',
@@ -9,7 +9,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class <%= classify(name) %>WrapperComponent implements OnInit {
 
-  constructor() { }
-
+  // tslint:disable-next-line: completed-docs
   ngOnInit() {}
 }

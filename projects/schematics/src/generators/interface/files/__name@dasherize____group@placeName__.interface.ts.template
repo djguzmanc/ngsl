@@ -1,5 +1,5 @@
 /**
- * I<%= classify(name) %><% if (group !== AUXILIARY_NAME && group !== EXCLUDE_NAME) { %><%= classify(group) %><% } %> description
+ * TODO: Document I<%= classify(name) %><% if (group !== AUXILIARY_NAME && group !== EXCLUDE_NAME) { %><%= classify(group) %><% } %> purpose
  */
 export interface I<%= classify(name) %><% if (group !== AUXILIARY_NAME && group !== EXCLUDE_NAME) { %><%= classify(group) %><% } %> {
 }

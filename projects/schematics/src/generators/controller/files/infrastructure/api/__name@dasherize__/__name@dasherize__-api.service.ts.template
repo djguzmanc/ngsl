@@ -5,7 +5,10 @@ import { ApiService } from '@interfaces/auxiliars';
 <% } else { %>
 import { HttpClient } from '@angular/common/http';
 <% } %>
-@Injectable({
+/**
+ * TODO: Document <%= classify(name) %>ApiService
+ */
+ @Injectable({
   providedIn: 'root'
 })
 export class <%= classify(name) %>ApiService implements I<%= classify(name) %>Controller<% if (cache) { %>, ApiService<% } %> {

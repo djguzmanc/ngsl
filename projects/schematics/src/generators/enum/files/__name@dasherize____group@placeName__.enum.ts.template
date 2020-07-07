@@ -1,5 +1,5 @@
 /**
- * <%= classify(name) %><% if (group !== AUXILIARY_NAME && group !== EXCLUDE_NAME) { %><%= classify(group) %><% } %> description
+ * TODO: Document <%= classify(name) %><% if (group !== AUXILIARY_NAME && group !== EXCLUDE_NAME) { %><%= classify(group) %><% } %> purpose
  */
 export enum <%= classify(name) %><% if (group !== AUXILIARY_NAME && group !== EXCLUDE_NAME) { %><%= classify(group) %><% } %> {
 }

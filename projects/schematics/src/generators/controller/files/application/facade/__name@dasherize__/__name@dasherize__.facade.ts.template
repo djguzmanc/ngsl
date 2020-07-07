@@ -3,6 +3,9 @@ import { I<%= classify(name) %>Controller } from '@utils/interfaces/controller';
 import { <%= classify(name) %>ApiService } from '@domain/infrastructure/api';<% if (cache) { %>
 import { CacheService } from '@services/cache/cache.service';<% } %>
 
+/**
+ * TODO: Document <%= classify(name) %>Facade purpose
+ */
 @Injectable({
   providedIn: 'root'
 })

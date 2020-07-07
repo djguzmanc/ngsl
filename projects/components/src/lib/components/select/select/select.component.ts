@@ -411,6 +411,7 @@ export class NgslSelectComponent implements OnInit, ControlValueAccessor {
     } else {
       this.currentValue = null;
       this._currentLabel = null;
+      this._currentOptionIndex = -1;
     }
   }
 

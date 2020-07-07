@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 
+/**
+ * TODO: Document <%= classify(name) %>Facade purpose
+ */
 @Injectable({
   providedIn: 'root'
 })
