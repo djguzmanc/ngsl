@@ -1,6 +1,6 @@
 #  @ngsl/schematics (BETA)
 
-An useful library for scaffold an Angular 9 project with the Slabcode enterprise architecture using Angular Schematics
+An useful library for scaffold an Angular project with an enterprise architecture using Angular Schematics
 
 ## Installation
 

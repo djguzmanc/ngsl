@@ -1,7 +1,7 @@
 {
   "name": "@ngsl/schematics",
-  "version": "0.0.10",
-  "description": "An useful library for scaffold an Angular 9 project with the Slabcode enterprise architecture",
+  "version": "0.0.12",
+  "description": "An useful library for scaffold an Angular project with an enterprise architecture",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "npm run build && jasmine src/**/*_spec.js"

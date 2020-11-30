@@ -14,7 +14,7 @@
     "component-selector": [
       true,
       "element",
-      "ty",
+      "app",
       "kebab-case"
     ],
     "import-blacklist": [
